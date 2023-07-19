@@ -4,7 +4,6 @@ const calculateBMI =async (req, res) => {
       const { weight, height } = req.body;
       const bmi = weight / Math.pow(height / 100, 2);
       const userId = req.user.id;
-      console.log(userId);
       const calculation = new Calculation({
         userId,
         weight,

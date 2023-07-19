@@ -5,9 +5,9 @@ const jwt = require("jsonwebtoken");
 
 
 const registerUser = asyncHandler(async (req, res) => {
-  const { username, email, password } = req.body;
+  const { name, email, password } = req.body;
 
-  if (!username || !email || !password) {
+  if (!name || !email || !password) {
     res.status(404);
     throw new Error("All fields required");
   }
@@ -22,7 +22,7 @@ const registerUser = asyncHandler(async (req, res) => {
   const hashedPassword = await brcypt.hash(password, 10);
 
   const users = await User.create({
-    username,
+    name,
     email,
     password: hashedPassword,
   });
@@ -30,7 +30,7 @@ const registerUser = asyncHandler(async (req, res) => {
     res.status(201).json({ _id: users.id, email: users.email });
   } else {
     res.status(400);
-    throw new Error("User data no valid");
+    throw new Error("User data not valid");
   }
 
   res.json({ message: "Register the user" });
@@ -46,30 +46,28 @@ const loginUser = asyncHandler(async (req, res) => {
 
   const user = await User.findOne({ email });
   if (user && (await brcypt.compare(password, user.password))) {
-    const accesToken = jwt.sign(
+    const token = jwt.sign(
       {
         user: {
-          username: user.username,
+          name: user.name,
           email: user.email,
           id: user.id,
         },
       },
       process.env.JWT_SECRET,
-      { expiresIn: "20m" }
+      { expiresIn: "59m" }
     );
-    res.status(200).json({ accesToken });
+    res.status(200).json(token);
   } else {
     res.status(401);
     throw new Error("email or password is not valid");
   }
 });
 
-// @desc current User
-// @route POST /api/users/current
-// @access private
 
 const currentUser = asyncHandler(async (req, res) => {
-  res.json(req.user)
+  const {name}= req.user
+  res.json(name);
 });
 
 module.exports = {

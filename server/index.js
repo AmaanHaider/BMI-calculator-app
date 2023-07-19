@@ -11,7 +11,7 @@ const getCalculationHistory = require('./routes/calculationHistory.routes')
 const app = express();
 const PORT =process.env.PORT 
 
-cors();
+app.use(cors());
 connectDb()
 app.use(express.json());
 
@@ -21,7 +21,7 @@ app.get('/',(req,res)=>{
 })
 
 app.use("/api/users",userRoutes);
-app.use("/api/getProfile",userRoutes);
+app.use("/api/getProfile",validateToken,userRoutes);
 app.use("/api/calculateBMI",validateToken,bmiCalculator);
 app.use("/api/getCalculation",validateToken,getCalculationHistory);
 app.use(erroHandler);
