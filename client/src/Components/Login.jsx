@@ -54,18 +54,6 @@ const Login = () => {
       });
     }
   };
-
-    // const handleLogin=()=>{
-    //     localStorage.setItem('accessToken' ,"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Im5hbWUiOiJoYWlkZXIiLCJlbWFpbCI6ImhhaWRlckBleGFtcGxlLmNvbSIsImlkIjoiNjRiODM5ZGMyM2U1N2JlNzU2MmI0YmMwIn0sImlhdCI6MTY4OTc5NTA1NiwiZXhwIjoxNjg5Nzk4NTk2fQ.rd2QuYOCWTMWqKnKRVurusoJsTbHgw8sWTxYn4JKrLM")
-    //     navigate('/dash')
-    // };
-    // useEffect(() => {
-    //     let login = localStorage.getItem('login')
-    //     if(login){
-    //         navigate('/dash')
-    //     }
-    // },)
-
   return (
     <Center m={5}>
 
