@@ -15,7 +15,6 @@ import {
   Center,
   Image,
 } from "@chakra-ui/react";
-// import bmi from "../assets/bmil.jpeg"
 const BmiCalculator = () => {
   const [weight, setWeight] = useState("");
   const [height, setHeight] = useState("");

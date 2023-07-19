@@ -90,7 +90,6 @@ export default function Navbar() {
                   <Center>
                     <Avatar
                       size={"2xl"}
-                      // src={"https://avatars.dicebear.com/api/male/username.svg"}
                     src={`${import.meta.env.VITE_AVATAR_URL}`}  
 
                     />
@@ -101,8 +100,6 @@ export default function Navbar() {
                   </Center>
                   <br />
                   <MenuDivider />
-                  {/* <MenuItem>Your Servers</MenuItem>
-                  <MenuItem>Account Settings</MenuItem> */}
                   <MenuItem>
                     {" "}
                     <Button

@@ -56,7 +56,6 @@ const Login = () => {
   };
   return (
     <Center m={5}>
-
     <Box m={5} p={4}>
       <Heading mb={4}>Log In</Heading>
       <form onSubmit={handleLogin}>

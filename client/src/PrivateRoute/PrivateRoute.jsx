@@ -11,7 +11,6 @@ const PrivateRoute = (props) => {
             navigate('/login')
         }
     },)
-    
   return (
     <div>
         <Navbar/>
